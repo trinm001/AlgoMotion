@@ -28,12 +28,53 @@ export function TrieVisualizer({ locale }: { locale: Locale }) {
 
 function TrieDiagram({ nodes, path, active, label }: { nodes: TrieNode[]; path: number[]; active: number; label: string }) {
   const depth = Array(nodes.length).fill(0) as number[];
-  const incoming = Array(nodes.length).fill("") as string[];
-  for (const node of nodes) for (const [character, child] of Object.entries(node.children)) { depth[child] = depth[node.id] + 1; incoming[child] = character; }
+  for (const node of nodes) {
+    for (const child of Object.values(node.children)) depth[child] = depth[node.id] + 1;
+  }
+
   const maxDepth = Math.max(...depth);
-  const levels = Array.from({ length: maxDepth + 1 }, (_, level) => nodes.filter((node) => depth[node.id] === level));
+  const levels = Array.from(
+    { length: maxDepth + 1 },
+    (_, level) => nodes.filter((node) => depth[node.id] === level),
+  );
   const positions = new Map<number, { x: number; y: number }>();
-  for (const [level, row] of levels.entries()) row.forEach((node, index) => positions.set(node.id, { x: ((index + 1) * 720) / (row.length + 1), y: 42 + level * 82 }));
+  for (const [level, row] of levels.entries()) {
+    row.forEach((node, index) => positions.set(node.id, {
+      x: ((index + 1) * 720) / (row.length + 1),
+      y: 42 + level * 82,
+    }));
+  }
+
   const height = Math.max(110, (maxDepth + 1) * 82);
-  return <svg role="img" aria-label={label} viewBox={`0 0 720 ${height}`} className="w-full min-w-[40rem] rounded-2xl border border-[var(--line)] bg-[var(--surface)]"><g stroke="var(--line)" strokeWidth="2">{nodes.flatMap((node) => Object.entries(node.children).map(([character, child]) => { const from = positions.get(node.id)!; const to = positions.get(child)!; return <g key={`${node.id}-${character}`}><line x1={from.x} y1={from.y + 22} x2={to.x} y2={to.y - 22} stroke={path.includes(node.id) && path.includes(child) ? "var(--accent)" : "var(--line)"} /><text x={(from.x + to.x) / 2 + 7} y={(from.y + to.y) / 2} fill="var(--muted)" className="font-mono text-xs font-black">{character}</text></g>; }))}</g>{nodes.map((node) => { const position = positions.get(node.id)!; const highlighted = path.includes(node.id); return <g key={node.id}><circle cx={position.x} cy={position.y} r="23" fill={node.id === active ? "var(--accent)" : highlighted ? "var(--brand)" : "var(--brand-soft)"} stroke="var(--brand)" strokeWidth={node.terminal ? 4 : 2} /><text x={position.x} y={position.y + 5} textAnchor="middle" fill={node.id === active || highlighted ? "white" : "var(--foreground)"} className="font-mono text-xs font-black">{node.id === 0 ? "root" : incoming[node.id]}</text>{node.terminal ? <text x={position.x + 20} y={position.y - 18} fill="var(--brand)" className="text-xs font-black">●</text> : null}</g>; })}</svg>;
+  return (
+    <svg role="img" aria-label={label} viewBox={`0 0 720 ${height}`} className="w-full min-w-[40rem] rounded-2xl border border-[var(--line)] bg-[var(--surface)]">
+      <g>
+        {nodes.flatMap((node) => Object.entries(node.children).map(([character, child]) => {
+          const from = positions.get(node.id)!;
+          const to = positions.get(child)!;
+          const labelX = (from.x + to.x) / 2;
+          const labelY = (from.y + to.y) / 2;
+          const highlighted = path.includes(node.id) && path.includes(child);
+          return (
+            <g key={`${node.id}-${character}`}>
+              <line x1={from.x} y1={from.y + 22} x2={to.x} y2={to.y - 22} stroke={highlighted ? "var(--accent)" : "var(--line)"} strokeWidth="2" />
+              <rect x={labelX - 12} y={labelY - 10} width="24" height="20" rx="6" fill="var(--surface)" stroke={highlighted ? "var(--accent)" : "var(--line)"} />
+              <text x={labelX} y={labelY + 4} textAnchor="middle" fill="var(--foreground)" className="font-mono text-[11px] font-medium">{character}</text>
+            </g>
+          );
+        }))}
+      </g>
+      {nodes.map((node) => {
+        const position = positions.get(node.id)!;
+        const highlighted = path.includes(node.id);
+        return (
+          <g key={node.id}>
+            <circle cx={position.x} cy={position.y} r="23" fill={node.id === active ? "var(--accent)" : highlighted ? "var(--brand)" : "var(--brand-soft)"} stroke="var(--brand)" strokeWidth={node.terminal ? 4 : 2} />
+            <text x={position.x} y={position.y + 5} textAnchor="middle" fill={node.id === active || highlighted ? "white" : "var(--foreground)"} className="font-mono text-xs font-black">{node.id}</text>
+            {node.terminal ? <text x={position.x + 20} y={position.y - 18} fill="var(--brand)" className="text-xs font-black">●</text> : null}
+          </g>
+        );
+      })}
+    </svg>
+  );
 }
