@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FenwickTreeVisualizer } from "@/components/fenwick-tree-visualizer";
+import { BinarySearchVisualizer, PrefixSumVisualizer, SortingVisualizer } from "@/components/fundamentals-visualizers";
 import { SegmentTreeVisualizer } from "@/components/segment-tree-visualizer";
 import { SieveVisualizer } from "@/components/sieve-visualizer";
 import { algorithms, categoryLabels, findAlgorithm } from "@/data/algorithms";
@@ -41,8 +42,14 @@ export default async function AlgorithmDetailPage({ params }: AlgorithmPageProps
             <FenwickTreeVisualizer locale={locale} />
           ) : algorithm.slug === "sieve-of-eratosthenes" ? (
             <SieveVisualizer locale={locale} />
+          ) : algorithm.slug === "elementary-sorting" ? (
+            <SortingVisualizer locale={locale} />
+          ) : algorithm.slug === "binary-search" ? (
+            <BinarySearchVisualizer locale={locale} />
+          ) : algorithm.slug === "prefix-sum" ? (
+            <PrefixSumVisualizer locale={locale} />
           ) : (
-            <section className="mt-12"><h2 className="text-2xl font-black">{t.detail.overview}</h2><div className="grid-paper mt-5 grid min-h-80 place-items-center rounded-3xl border border-dashed border-[var(--line)] text-center"><div><span className="text-4xl">◇</span><p className="mt-3 font-mono text-sm text-[var(--muted)]">visualizer / phase 3+</p></div></div></section>
+            <section className="mt-12"><h2 className="text-2xl font-black">{t.detail.overview}</h2><div className="grid-paper mt-5 grid min-h-80 place-items-center rounded-3xl border border-dashed border-[var(--line)] text-center"><div><span className="text-4xl">◇</span><p className="mt-3 font-mono text-sm text-[var(--muted)]">visualizer / roadmap</p></div></div></section>
           )}
         </article>
         <aside className="space-y-5">

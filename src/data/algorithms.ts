@@ -39,6 +39,14 @@ const cpAlgorithms = (path: string): AlgorithmSource => ({
 
 export const algorithms: Algorithm[] = [
   {
+    slug: "elementary-sorting",
+    title: { vi: "Sắp xếp cơ bản", en: "Elementary Sorting" },
+    description: { vi: "So sánh Bubble Sort, Selection Sort và Insertion Sort qua từng phép đổi chỗ.", en: "Compare Bubble, Selection, and Insertion Sort one operation at a time." },
+    category: "fundamentals", difficulty: "easy", status: "available",
+    prerequisites: [{ vi: "Mảng", en: "Arrays" }, { vi: "Vòng lặp", en: "Loops" }],
+    sources: [{ name: "Wikipedia — Sorting algorithm", url: "https://en.wikipedia.org/wiki/Sorting_algorithm", role: "primary" }], lastReviewed: "2026-09-20",
+  },
+  {
     slug: "segment-tree",
     title: { vi: "Cây phân đoạn", en: "Segment Tree" },
     description: { vi: "Truy vấn và cập nhật thông tin trên các đoạn của mảng trong thời gian logarithm.", en: "Query and update information over array intervals in logarithmic time." },
@@ -66,9 +74,17 @@ export const algorithms: Algorithm[] = [
     slug: "binary-search",
     title: { vi: "Tìm kiếm nhị phân", en: "Binary Search" },
     description: { vi: "Thu hẹp không gian tìm kiếm bằng cách loại một nửa sau mỗi bước.", en: "Halve the search space after every comparison." },
-    category: "fundamentals", difficulty: "easy", status: "planned",
+    category: "fundamentals", difficulty: "easy", status: "available",
     prerequisites: [{ vi: "Mảng đã sắp xếp", en: "Sorted arrays" }],
-    sources: [cpAlgorithms("num_methods/binary_search.html")], lastReviewed: null,
+    sources: [cpAlgorithms("num_methods/binary_search.html")], lastReviewed: "2026-09-20",
+  },
+  {
+    slug: "prefix-sum",
+    title: { vi: "Tổng tiền tố", en: "Prefix Sum" },
+    description: { vi: "Tiền xử lý tổng tích lũy để trả lời truy vấn tổng đoạn trong O(1).", en: "Precompute cumulative sums to answer range-sum queries in O(1)." },
+    category: "fundamentals", difficulty: "easy", status: "available",
+    prerequisites: [{ vi: "Mảng", en: "Arrays" }, { vi: "Chỉ số nửa mở", en: "Half-open indices" }],
+    sources: [{ name: "Wikipedia — Prefix sum", url: "https://en.wikipedia.org/wiki/Prefix_sum", role: "primary" }], lastReviewed: "2026-09-20",
   },
   {
     slug: "disjoint-set-union",

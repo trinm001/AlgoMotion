@@ -16,6 +16,9 @@ describe("algorithm catalog", () => {
     expect(findAlgorithm("segment-tree")?.lastReviewed).toBe("2026-09-19");
     expect(findAlgorithm("fenwick-tree")?.status).toBe("available");
     expect(findAlgorithm("sieve-of-eratosthenes")?.status).toBe("available");
+    expect(findAlgorithm("elementary-sorting")?.status).toBe("available");
+    expect(findAlgorithm("binary-search")?.status).toBe("available");
+    expect(findAlgorithm("prefix-sum")?.status).toBe("available");
     expect(findAlgorithm("missing")).toBeUndefined();
   });
 });
