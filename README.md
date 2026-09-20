@@ -39,7 +39,7 @@ corepack pnpm test:e2e
 | 11 | Public beta và ra mắt | Deploy, theo dõi lỗi, phát hành |
 | 12 | Duy trì lâu dài | Thêm thuật toán và cập nhật nguồn |
 
-Hiện dự án đã hoàn thành Giai đoạn 4. Giai đoạn tiếp theo là Giai đoạn 5 — cấu trúc dữ liệu.
+Hiện dự án đã hoàn thành Giai đoạn 5. Giai đoạn tiếp theo là Giai đoạn 6 — đồ thị và cây.
 
 ## Tiến độ đã hoàn thành
 
@@ -50,3 +50,5 @@ Giai đoạn 2 hoàn thiện bài học Segment Tree đầu tiên: dựng cây, 
 Giai đoạn 3 bổ sung hai bài học đã kiểm chứng: Fenwick Tree với lowbit, truy vấn tổng đoạn và cập nhật điểm; Sàng Eratosthenes với quá trình đánh dấu hợp số từ `p²`. Cả hai có trace từng bước, code C++ đồng bộ, nội dung Việt–Anh và kiểm thử desktop/mobile.
 
 Giai đoạn 4 bổ sung ba bài học nền tảng đã kiểm chứng: phòng lab sắp xếp với Bubble Sort, Selection Sort và Insertion Sort; Binary Search trên mảng đã sắp xếp; Prefix Sum với tiền xử lý và truy vấn tổng đoạn O(1). Cả ba có trace từng bước, code C++ đồng bộ, kiểm tra đầu vào, nội dung Việt–Anh và kiểm thử desktop/mobile.
+
+Giai đoạn 5 bổ sung bốn cấu trúc dữ liệu đã kiểm chứng: Binary Heap với build/push/pop; DSU với union by size và path compression; Trie với insert/search/prefix; Sparse Table với dựng bảng và truy vấn RMQ O(1). Mỗi bài có trace từng bước, code C++ đồng bộ, kiểm tra đầu vào, nội dung Việt–Anh và kiểm thử desktop/mobile.

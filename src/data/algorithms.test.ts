@@ -19,6 +19,10 @@ describe("algorithm catalog", () => {
     expect(findAlgorithm("elementary-sorting")?.status).toBe("available");
     expect(findAlgorithm("binary-search")?.status).toBe("available");
     expect(findAlgorithm("prefix-sum")?.status).toBe("available");
+    expect(findAlgorithm("binary-heap")?.status).toBe("available");
+    expect(findAlgorithm("disjoint-set-union")?.status).toBe("available");
+    expect(findAlgorithm("trie")?.status).toBe("available");
+    expect(findAlgorithm("sparse-table")?.status).toBe("available");
     expect(findAlgorithm("missing")).toBeUndefined();
   });
 });

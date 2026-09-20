@@ -38,6 +38,8 @@ const cpAlgorithms = (path: string): AlgorithmSource => ({
 });
 
 export const algorithms: Algorithm[] = [
+
+{ slug: "binary-heap", title: { vi: "Heap nhị phân", en: "Binary Heap" }, description: { vi: "Duy trì phần tử ưu tiên bằng cây nhị phân hoàn chỉnh lưu trong mảng.", en: "Maintain the priority element in a complete binary tree stored as an array." }, category: "data-structures", difficulty: "intermediate", status: "available", prerequisites: [{ vi: "Mảng", en: "Arrays" }, { vi: "Cây nhị phân", en: "Binary trees" }], sources: [{ name: "C++ working draft — priority queue", url: "https://eel.is/c++draft/priority.queue", role: "primary" }], lastReviewed: "2026-09-20", },
   {
     slug: "elementary-sorting",
     title: { vi: "Sắp xếp cơ bản", en: "Elementary Sorting" },
@@ -90,10 +92,14 @@ export const algorithms: Algorithm[] = [
     slug: "disjoint-set-union",
     title: { vi: "Disjoint Set Union", en: "Disjoint Set Union" },
     description: { vi: "Theo dõi và hợp nhất các thành phần liên thông hiệu quả.", en: "Track and merge connected components efficiently." },
-    category: "data-structures", difficulty: "intermediate", status: "planned",
+    category: "data-structures", difficulty: "intermediate", status: "available",
     prerequisites: [{ vi: "Cây", en: "Trees" }],
-    sources: [cpAlgorithms("data_structures/disjoint_set_union.html")], lastReviewed: null,
+    sources: [cpAlgorithms("data_structures/disjoint_set_union.html")], lastReviewed: "2026-09-20",
   },
+
+  { slug: "trie", title: { vi: "Cây Trie", en: "Trie" }, description: { vi: "Lưu và truy vấn chuỗi theo từng ký tự trên cây tiền tố.", en: "Store and query strings one character at a time in a prefix tree." }, category: "data-structures", difficulty: "intermediate", status: "available", prerequisites: [{ vi: "Chuỗi", en: "Strings" }, { vi: "Cây", en: "Trees" }], sources: [cpAlgorithms("string/aho_corasick.html")], lastReviewed: "2026-09-20", },
+
+  { slug: "sparse-table", title: { vi: "Sparse Table", en: "Sparse Table" }, description: { vi: "Tiền xử lý truy vấn minimum trên mảng tĩnh trong O(1).", en: "Precompute constant-time range minimum queries on a static array." }, category: "data-structures", difficulty: "intermediate", status: "available", prerequisites: [{ vi: "Lũy thừa hai", en: "Powers of two" }, { vi: "Logarithm", en: "Logarithms" }], sources: [cpAlgorithms("data_structures/sparse-table.html")], lastReviewed: "2026-09-20", },
   {
     slug: "breadth-first-search",
     title: { vi: "Tìm kiếm theo chiều rộng", en: "Breadth-First Search" },

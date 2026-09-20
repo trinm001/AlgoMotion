@@ -2,9 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FenwickTreeVisualizer } from "@/components/fenwick-tree-visualizer";
+import { DisjointSetVisualizer } from "@/components/disjoint-set-visualizer";
 import { BinarySearchVisualizer, PrefixSumVisualizer, SortingVisualizer } from "@/components/fundamentals-visualizers";
 import { SegmentTreeVisualizer } from "@/components/segment-tree-visualizer";
 import { SieveVisualizer } from "@/components/sieve-visualizer";
+import { HeapVisualizer } from "@/components/heap-visualizer";
+import { SparseTableVisualizer } from "@/components/sparse-table-visualizer";
+import { TrieVisualizer } from "@/components/trie-visualizer";
 import { algorithms, categoryLabels, findAlgorithm } from "@/data/algorithms";
 import { getDictionary, isLocale, locales } from "@/lib/i18n";
 
@@ -48,6 +52,14 @@ export default async function AlgorithmDetailPage({ params }: AlgorithmPageProps
             <BinarySearchVisualizer locale={locale} />
           ) : algorithm.slug === "prefix-sum" ? (
             <PrefixSumVisualizer locale={locale} />
+          ) : algorithm.slug === "binary-heap" ? (
+            <HeapVisualizer locale={locale} />
+          ) : algorithm.slug === "disjoint-set-union" ? (
+            <DisjointSetVisualizer locale={locale} />
+          ) : algorithm.slug === "trie" ? (
+            <TrieVisualizer locale={locale} />
+          ) : algorithm.slug === "sparse-table" ? (
+            <SparseTableVisualizer locale={locale} />
           ) : (
             <section className="mt-12"><h2 className="text-2xl font-black">{t.detail.overview}</h2><div className="grid-paper mt-5 grid min-h-80 place-items-center rounded-3xl border border-dashed border-[var(--line)] text-center"><div><span className="text-4xl">◇</span><p className="mt-3 font-mono text-sm text-[var(--muted)]">visualizer / roadmap</p></div></div></section>
           )}
