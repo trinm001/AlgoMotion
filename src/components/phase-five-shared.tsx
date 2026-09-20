@@ -30,6 +30,10 @@ export function TextInput({ label, value, onChange, id, className = "" }: { labe
   return <label htmlFor={id} className={`min-w-44 flex-1 text-xs font-black uppercase tracking-wider text-[var(--muted)] ${className}`}>{label}<input id={id} value={value} onChange={(event) => onChange(event.target.value)} className="mt-2 block h-11 w-full rounded-xl border border-[var(--line)] bg-[var(--background)] px-3 font-mono text-base text-[var(--foreground)] outline-none focus:border-[var(--brand)]" /></label>;
 }
 
+export function EdgeListInput({ label, value, onChange, id, className = "" }: { label: string; value: string; onChange: (value: string) => void; id: string; className?: string }) {
+  return <label htmlFor={id} className={`min-w-44 flex-1 text-xs font-black uppercase tracking-wider text-[var(--muted)] ${className}`}>{label}<textarea id={id} rows={5} spellCheck={false} value={value} onChange={(event) => onChange(event.target.value)} className="mt-2 block w-full resize-y rounded-xl border border-[var(--line)] bg-[var(--background)] px-3 py-2 font-mono text-base leading-6 text-[var(--foreground)] outline-none focus:border-[var(--brand)]" /></label>;
+}
+
 export function NumberInput({ label, value, onChange, min, max }: { label: string; value: number; onChange: (value: number) => void; min?: number; max?: number }) {
   return <label className="rounded-xl border border-[var(--line)] bg-[var(--background)] px-3 py-2 text-xs font-bold text-[var(--muted)]">{label}<input aria-label={label} type="number" min={min} max={max} value={value} onChange={(event) => onChange(Number(event.target.value))} className="mt-1 w-full bg-transparent font-mono text-base font-black text-[var(--foreground)] outline-none" /></label>;
 }
