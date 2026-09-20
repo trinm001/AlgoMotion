@@ -23,6 +23,11 @@ describe("algorithm catalog", () => {
     expect(findAlgorithm("disjoint-set-union")?.status).toBe("available");
     expect(findAlgorithm("trie")?.status).toBe("available");
     expect(findAlgorithm("sparse-table")?.status).toBe("available");
+    expect(findAlgorithm("breadth-first-search")?.status).toBe("available");
+    expect(findAlgorithm("dijkstra")?.status).toBe("available");
+    expect(findAlgorithm("bellman-ford")?.status).toBe("available");
+    expect(findAlgorithm("minimum-spanning-tree")?.status).toBe("available");
+    expect(findAlgorithm("lowest-common-ancestor")?.status).toBe("available");
     expect(findAlgorithm("missing")).toBeUndefined();
   });
 });
