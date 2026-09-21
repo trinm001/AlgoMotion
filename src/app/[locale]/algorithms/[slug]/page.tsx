@@ -11,6 +11,7 @@ import { SparseTableVisualizer } from "@/components/sparse-table-visualizer";
 import { TrieVisualizer } from "@/components/trie-visualizer";
 import { GraphTraversalVisualizer } from "@/components/graph-traversal-visualizer";
 import { LcaVisualizer } from "@/components/lca-visualizer";
+import { KmpVisualizer } from "@/components/kmp-visualizer";
 import { MstVisualizer } from "@/components/mst-visualizer";
 import { ShortestPathVisualizer } from "@/components/shortest-path-visualizer";
 import { algorithms, categoryLabels, findAlgorithm } from "@/data/algorithms";
@@ -74,6 +75,8 @@ export default async function AlgorithmDetailPage({ params }: AlgorithmPageProps
             <MstVisualizer locale={locale} />
           ) : algorithm.slug === "lowest-common-ancestor" ? (
             <LcaVisualizer locale={locale} />
+          ) : algorithm.slug === "knuth-morris-pratt" ? (
+            <KmpVisualizer locale={locale} />
           ) : (
             <section className="mt-12"><h2 className="text-2xl font-black">{t.detail.overview}</h2><div className="grid-paper mt-5 grid min-h-80 place-items-center rounded-3xl border border-dashed border-[var(--line)] text-center"><div><span className="text-4xl">◇</span><p className="mt-3 font-mono text-sm text-[var(--muted)]">visualizer / roadmap</p></div></div></section>
           )}

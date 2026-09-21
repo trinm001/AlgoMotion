@@ -144,9 +144,9 @@ export const algorithms: Algorithm[] = [
     slug: "knuth-morris-pratt",
     title: { vi: "Thuật toán KMP", en: "Knuth–Morris–Pratt" },
     description: { vi: "Tìm mẫu trong chuỗi mà không quay lại những ký tự đã biết.", en: "Search for a pattern without rechecking known characters." },
-    category: "strings", difficulty: "intermediate", status: "planned",
+    category: "strings", difficulty: "intermediate", status: "available",
     prerequisites: [{ vi: "Chuỗi", en: "Strings" }],
-    sources: [cpAlgorithms("string/prefix-function.html")], lastReviewed: null,
+    sources: [cpAlgorithms("string/prefix-function.html")], lastReviewed: "2026-09-21",
   },
 ];
 

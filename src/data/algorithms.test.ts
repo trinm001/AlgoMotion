@@ -28,6 +28,7 @@ describe("algorithm catalog", () => {
     expect(findAlgorithm("bellman-ford")?.status).toBe("available");
     expect(findAlgorithm("minimum-spanning-tree")?.status).toBe("available");
     expect(findAlgorithm("lowest-common-ancestor")?.status).toBe("available");
+    expect(findAlgorithm("knuth-morris-pratt")?.status).toBe("available");
     expect(findAlgorithm("missing")).toBeUndefined();
   });
 });

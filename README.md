@@ -39,7 +39,7 @@ corepack pnpm test:e2e
 | 11 | Public beta và ra mắt | Deploy, theo dõi lỗi, phát hành |
 | 12 | Duy trì lâu dài | Thêm thuật toán và cập nhật nguồn |
 
-Hiện dự án đã hoàn thành Giai đoạn 6. Giai đoạn tiếp theo là Giai đoạn 7 — DP, chuỗi, toán và hình học.
+Hiện dự án đã hoàn thành Giai đoạn 7 với phòng lab KMP cho nhóm chuỗi.
 
 ## Tiến độ đã hoàn thành
 
@@ -54,3 +54,5 @@ Giai đoạn 4 bổ sung ba bài học nền tảng đã kiểm chứng: phòng 
 Giai đoạn 5 bổ sung bốn cấu trúc dữ liệu đã kiểm chứng: Binary Heap với build/push/pop; DSU với union by size và path compression; Trie với insert/search/prefix; Sparse Table với dựng bảng và truy vấn RMQ O(1). Mỗi bài có trace từng bước, code C++ đồng bộ, kiểm tra đầu vào, nội dung Việt–Anh và kiểm thử desktop/mobile.
 
 Giai đoạn 6 bổ sung hệ thống đồ thị/cây dùng chung và năm bài học đã kiểm chứng: BFS/DFS; Dijkstra; Bellman–Ford với phát hiện chu trình âm; MST với Kruskal/Prim; LCA bằng Binary Lifting. Mỗi bài hỗ trợ nhập cạnh, sơ đồ SVG, trace từng bước, code C++, nội dung Việt–Anh và kiểm thử desktop/mobile.
+
+Giai đoạn 7 bổ sung phòng lab KMP cho nhóm chuỗi: dựng bảng tiền tố, tìm mọi vị trí khớp, trace từng bước, code C++ đồng bộ, nội dung Việt–Anh và kiểm thử desktop/mobile.
